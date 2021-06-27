@@ -27,6 +27,7 @@
   <div>
     <h5><%= movie.title %></h5>
     <p><%= movie.impressions %></p>
+    <p><%= link_to "#{movie.post_comments.count}コメント", movie_path(movie.id) %></p>
   </div>
 </div>
 <% end %>
