@@ -1,0 +1,33 @@
+<!--プロフィール-->
+
+
+<!--投稿機能-->
+
+<h2>映画感想投稿</h2>
+<%= form_with model: @new_movie, local: true do |f| %>
+  <%= f.label :title %><br>
+  <%= f.text_field :title %><br>
+  <%= f.label :impressions %><br>
+  <%= f.text_area :impressions %><br>
+  <%= f.attachment_field :image %><br>
+  <%= f.submit 'Create' %>
+<% end %>
+
+<!--映画一覧-->
+
+<% @movies.each do |movie| %>
+<div>
+  <%= link_to movie_path(movie.id) do %>
+    <%= attachment_image_tag movie, :image, :fill, 260, 366, fallback: 'noimage_ピクト-760x460.png' %>
+  <% end %>
+  <div>
+    <%= image_tag 'noimage-760x460.png', :size => '40x40' %>
+    user_name
+  </div>
+  <div>
+    <h5><%= movie.title %></h5>
+    <p><%= movie.impressions %></p>
+    <p><%= link_to "#{movie.post_comments.count}コメント", movie_path(movie.id) %></p>
+  </div>
+</div>
+<% end %>

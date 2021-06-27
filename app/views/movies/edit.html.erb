@@ -1,0 +1,9 @@
+<h2>映画感想編集</h2>
+<%= form_with model: @movie, local: true do |f| %>
+  <%= f.label :title %><br>
+  <%= f.text_field :title %><br>
+  <%= f.label :impressions %><br>
+  <%= f.text_area :impressions %><br>
+  <%= f.attachment_field :image %><br>
+  <%= f.submit 'Update' %>
+<% end %>

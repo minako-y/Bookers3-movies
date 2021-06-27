@@ -1,0 +1,37 @@
+
+<div class="movie-body">
+  <%= attachment_image_tag @movie, :image, :fill, 520, 732, fallback: 'noimage_ピクト-760x460.png' %>
+  <div>
+    <%= image_tag 'noimage-760x460.png', :size => '40x40' %>
+    user_name
+  </div>
+  <div>
+    <h5><%= @movie.title %></h5>
+    <p><%= @movie.impressions %></p>
+  </div>
+
+  <%= link_to "edit", edit_movie_path %>
+  <%= link_to "destroy", movie_path(@movie.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+
+</div>
+
+<div class="comments">
+  <p>コメント件数：<%= @movie.post_comments.count %></p>
+  <% @movie.post_comments.each do |post_comment| %>
+    <p><%= image_tag 'noimage-760x460.png', :size => '40x40' %></p>
+    <%= post_comment.user.name %>
+    <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
+    <% if post_comment.user == current_user %>
+    <div class="comment-delete">
+      <%= link_to "destroy", movie_post_comment_path(post_comment.movie, post_comment), method: :delete %>
+    </div>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="new-comment">
+<%= form_with(model:[@movie, @post_comment], local: true) do |f| %>
+  <%= f.text_area :comment, rows:'5', placeholder: "コメントをここに" %>
+  <%= f.submit "send" %>
+<% end %>
+</div>
