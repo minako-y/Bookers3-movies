@@ -1,0 +1,13 @@
+
+  <%= attachment_image_tag @movie, :image, :fill, 520, 732, fallback: 'noimage_ピクト-760x460.png' %>
+  <div>
+    <%= image_tag 'noimage-760x460.png', :size => '40x40' %>
+    user_nameis
+  </div>
+  <div>
+    <h5><%= @movie.title %></h5>
+    <p><%= @movie.impressions %></p>
+  </div>
+
+  <%= link_to "edit", edit_movie_path %>
+  <%= link_to "destroy", movie_path(@movie.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
