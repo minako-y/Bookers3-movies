@@ -17,7 +17,7 @@
           <% if user_signed_in? %>
             <li>Home</li>
             <li>Users</li>
-            <li>Movies</li>
+            <li><%= link_to "Movies", movies_path %></li>
             <li><%= link_to "logout", destroy_user_session_path, method: :delete %></li>
           <% else %>
             <li><%= link_to "Home", "/" %></li>
