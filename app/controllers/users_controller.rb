@@ -1,9 +1,13 @@
 class UsersController < ApplicationController
   def index
+    @user = User.find(current_user.id)
+    @new_movie = Movie.new
+    @users = User.all
   end
 
   def show
     @user = User.find(params[:id])
+    @new_movie = Movie.new
     @movies = @user.movies
   end
 
