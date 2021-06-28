@@ -1,0 +1,33 @@
+<!--プロフィール-->
+<div class="profile-box">
+  <h2>User info</h2>
+  <%= attachment_image_tag user, :profile_image, :fill, 150, 150, fallback: 'noimage-760x460.png', :size => "150x150" %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">name</th>
+        <th scope="col"><%= user.name %></th>
+      </tr>
+      <tr>
+        <th scope="col">introduction</th>
+        <th scope="col"><%= user.introduction %></th>
+      </tr>
+    </thead>
+  </table>
+  <%= link_to edit_user_path(user), class: "btn btn-outline-secondary" do %>
+    <i class="fas fa-user-cog"></i>
+  <% end %>
+</div>
+<!--投稿機能-->
+<div class="post_movie_box">
+  <h2>映画感想投稿</h2>
+  <%= form_with model: @new_movie, local: true do |f| %>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %><br>
+    <%= f.label :impressions %><br>
+    <%= f.text_area :impressions %><br>
+    <%= f.attachment_field :image %><br>
+    <%= f.submit 'Create' %>
+  <% end %>
+</div>
+

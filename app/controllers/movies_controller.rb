@@ -3,6 +3,7 @@ class MoviesController < ApplicationController
   def index
     @new_movie = Movie.new
     @movies = Movie.all
+    @user = User.find(current_user.id)
   end
 
   def show
