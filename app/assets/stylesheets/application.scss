@@ -18,3 +18,21 @@
  @import 'font-awesome';
 
 
+main {
+ background-color: rgba(255,255,255,0.9);
+}
+
+footer {
+ height: 70px;
+}
+
+footer p {
+ line-height: 70px;
+ text-align: center;
+}
+
+.visual-img {
+ background-image: url(movie-918655_960_720.png);
+ background-size: cover;
+ background-attachment: fixed;
+}
