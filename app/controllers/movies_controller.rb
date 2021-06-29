@@ -9,6 +9,7 @@ class MoviesController < ApplicationController
   def show
     @new_movie = Movie.new
     @movie = Movie.find(params[:id])
+    @user = User.find(current_user.id)
     @post_comment = PostComment.new
   end
 

@@ -1,5 +1,5 @@
 <!--プロフィール-->
-<div class="profile-box">
+<div class="profile-box shadow-lg">
   <h2>User info</h2>
   <%= attachment_image_tag user, :profile_image, :fill, 150, 150, fallback: 'noimage-760x460.png', :size => "150x150" %>
   <table class="table">
@@ -19,7 +19,7 @@
   <% end %>
 </div>
 <!--投稿機能-->
-<div class="post_movie_box">
+<div class="post_movie_box shadow-lg">
   <h2>映画感想投稿</h2>
   <%= form_with model: @new_movie, local: true do |f| %>
     <%= f.label :title %><br>
